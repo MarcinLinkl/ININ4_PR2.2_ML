@@ -5,21 +5,24 @@ public class Animal {
     public static final Double DEFAULT_DOG_WEIGHT = 20.0;
     public static final Double DEFAULT_MOUSE_WEIGHT = 4.220;
     public static final Double DEFAULT_LION_WEIGHT = 43.0;
-    final String species;
+    final private String species;
     private Double weight;
-    String name;
+    final private String name;
+    public String getName() {
+        return name;
+    }
 
-
-    public Animal(String species) {
+    public Animal(String species, String name) {
+        this.name = name;
         this.species = species;
-
         if (species == "dog") {
-            weight = DEFAULT_DOG_WEIGHT;
+            this.weight = DEFAULT_DOG_WEIGHT;
         } else if (species == "lion") {
-            weight = DEFAULT_LION_WEIGHT;
+            this.weight = DEFAULT_LION_WEIGHT;
         } else if (species == "mouse") {
-            weight = DEFAULT_MOUSE_WEIGHT;
+            this.weight = DEFAULT_MOUSE_WEIGHT;
         }
+
     }
 
 
@@ -46,5 +49,6 @@ public class Animal {
                 System.out.println("No to trochę przesadziłeś, teraz to zdechłem. Idź w cholerę !!!");
         }
     }
+
 
 }
