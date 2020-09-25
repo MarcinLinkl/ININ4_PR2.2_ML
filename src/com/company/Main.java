@@ -1,12 +1,13 @@
 package com.company;
 
+
 public class Main {
 
     public static void main(String[] args) {
 
         Human me = new Human("Marcin", "Li");
         me.pet = new Animal("mouse", "Baśka");
-        me.car = new Car("Peugot","206",60,1.1f,2002);
+        me.car = new Car("Peugot", "206", 60, 1.1f, 2002);
 
 
         System.out.println("Cześć! Tu twoja mysz " + me.pet.getName() + ".");
@@ -18,7 +19,15 @@ public class Main {
         }
 
 
-        System.out.println("Parametry mojego auta cacka:\n"+me.car.producer + "\n"+ me.car.model+ "\nEngine: "+ me.car.horsepower + "HP\t" + me.car.engineCapacity + "l\n"+me.car.yearOfProduction);
+        System.out.println("\u001B[33m" + "Parametry mojego auta cacka:\n" + me.car.producer + "\n" + me.car.model + "\nEngine: " + me.car.horsepower + "HP\t" + me.car.engineCapacity + "l\n" + me.car.yearOfProduction + "\u001B[0m");
+
+
+        me.setSalary(1000.0);
+        me.getSalary();
+        me.setSalary(200000.0);
+        me.getSalary();
+        me.getSalary();
+
 
     }
 }
