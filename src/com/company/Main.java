@@ -1,6 +1,8 @@
 package com.company;
 
 
+import com.company.devices.Car;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -8,7 +10,7 @@ public class Main {
         Human me = new Human("Marcin", "Li");
         me.pet = new Animal("mouse", "Baśka");
         Car peugot206 = new Car("Peugot", "206", 60, 1.1f, 2002, 7000);
-
+        Car peugot206_2 = new Car("Peugot", "206", 60, 1.1f, 2002, 7000);
 
 
         for (int i = 0; i < 3; i++) {
@@ -25,7 +27,14 @@ public class Main {
 
         me.setCar(peugot206);
         System.out.println("My car for now: " + me.getCar());
+
+        System.out.println(peugot206);
+        System.out.println(peugot206_2);
+        System.out.println((peugot206==peugot206_2));
+
         System.out.println(me);
+        System.out.println(me.pet);
+
 
     }
 }

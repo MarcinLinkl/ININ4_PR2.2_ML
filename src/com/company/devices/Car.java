@@ -1,12 +1,12 @@
-package com.company;
+package com.company.devices;
 
 public class Car {
-    final String model;
-    final String producer;
-    final int horsepower;
-    final float engineCapacity;
-    final int yearOfProduction;
-    int value;
+    final public String model;
+    final public String producer;
+    final public int horsepower;
+    final public float engineCapacity;
+    final public int yearOfProduction;
+    public int value;
 
     public Car(String producer, String model, int horsepower, float engineCapacity, int yearOfProduction, int value) {
         this.model = model;
