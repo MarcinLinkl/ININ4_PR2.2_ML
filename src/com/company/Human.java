@@ -7,9 +7,25 @@ public class Human {
     String firstName;
     String lastName;
     Animal pet;
-    Car car;
     Phone phone;
+    private Car car;
     private Double salary;
+
+    @Override
+    public String toString() {
+        return "Human {" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", pet=" + pet +
+                ", phone=" + phone +
+                ", car=" + car +
+                ", salary=" + salary +
+                ", lastSalary=" + lastSalary +
+                ", lastCheckSalary=" + lastCheckSalary +
+
+                '}';
+    }
+
     Double lastSalary;
     LocalDateTime lastCheckSalary;
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
@@ -47,5 +63,25 @@ public class Human {
         }
 
     }
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        if (this.salary >car.value) {
+            System.out.println("Congrats, you bought the car.");
+            this.car = car;
+        }
+        else if (this.salary >=car.value/12) {
+            System.out.println("Smile buddy, you bought it on credit.");
+            this.car = car;
+        }
+        else {
+            System.out.println("Sorry buddy, lets better find a new job! :(");
+        }
+
+
+}
 
 }

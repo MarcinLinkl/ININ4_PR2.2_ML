@@ -7,6 +7,16 @@ public class Animal {
     public static final Double DEFAULT_LION_WEIGHT = 43.0;
     final private String species;
     private Double weight;
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "species='" + species + '\'' +
+                ", weight=" + weight +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
     final private String name;
     public String getName() {
         return name;
@@ -22,18 +32,17 @@ public class Animal {
         } else if (species == "mouse") {
             this.weight = DEFAULT_MOUSE_WEIGHT;
         }
-
+        System.out.println("Hey that's your "+ this.species + " " + this.name + ". Hello!");
     }
 
 
     void feed() {
         if (weight > 0) {
             weight++;
-            System.out.println("Dziękówka");
-            System.out.println("Najadłem się. Moja waga to teraz: " + this.weight);
+            System.out.println("Thx!");
+            System.out.println("That was nice my weigh is: " + this.weight);
         } else {
-            System.out.println("Teraz to jestem martwy i możesz się tym wypchać!");
-            System.out.println("Moja waga to teraz: " + this.weight);
+            System.out.println("Damn! I am dead.");
 
         }
     }
@@ -43,10 +52,10 @@ public class Animal {
         } else {
             weight--;
             if (weight > 0) {
-                System.out.println("Dzięki za spacer, lubię to! :)");
-                System.out.println("My wieght is " + Math.round(weight * 1000) / 1000.00);
+                System.out.println("Thank you bro, I like wasting time to get around :)");
+                System.out.println("My weight is " + Math.round(weight * 1000) / 1000.00);
             } else
-                System.out.println("No to trochę przesadziłeś, teraz to zdechłem. Idź w cholerę !!!");
+                System.out.println("Oh Oh oh! Wait man. I'm dead, cause not ate! :)");
         }
     }
 
