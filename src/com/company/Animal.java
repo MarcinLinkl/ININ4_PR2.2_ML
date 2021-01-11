@@ -1,12 +1,17 @@
 package com.company;
 
-public class Animal {
+import java.io.File;
+
+public class Animal implements Saleable {
 
     public static final Double DEFAULT_DOG_WEIGHT = 20.0;
     public static final Double DEFAULT_MOUSE_WEIGHT = 4.220;
     public static final Double DEFAULT_LION_WEIGHT = 43.0;
-    final private String species;
-    private Double weight;
+    public final String species;
+    protected Double weight;
+    public String name;
+    File pic;
+
 
     @Override
     public String toString() {
@@ -17,14 +22,14 @@ public class Animal {
                 '}';
     }
 
-    final private String name;
+
     public String getName() {
         return name;
     }
 
-    public Animal(String species, String name) {
-        this.name = name;
+    public Animal(String species) {
         this.species = species;
+        if (species == "homo sapiens"){}else {
         if (species == "dog") {
             this.weight = DEFAULT_DOG_WEIGHT;
         } else if (species == "lion") {
@@ -32,8 +37,8 @@ public class Animal {
         } else if (species == "mouse") {
             this.weight = DEFAULT_MOUSE_WEIGHT;
         }
-        System.out.println("Hey that's your "+ this.species + " " + this.name + ". Hello!");
-    }
+        System.out.println("Hey that's your " + this.species + " " + this.name + ". Hello!");
+    }}
 
 
     void feed() {
@@ -46,6 +51,7 @@ public class Animal {
 
         }
     }
+
     void takeForAWalk() {
         if (weight <= 0) {
             System.out.println("I am dead.");
@@ -60,4 +66,21 @@ public class Animal {
     }
 
 
+    @Override
+    public void sell(Human seller, Human buyer, Double price) throws Exception {
+        if (this instanceof Human) {
+            throw new Exception("Actually, slavery is forbidden .:(");
+        } else if (seller.pet != this) {
+            System.out.println("Oh no! Dont fuck with me! You don't have pet! >:{ ");
+        } else if (buyer.getCash() >= price) {
+            seller.setCash(seller.getCash() + price);
+            buyer.setCash( buyer.getCash() - price);
+            buyer.pet = this;
+            seller.pet = null;
+
+            System.out.println(buyer.firstName + " bought " + this.toString() + " from " + seller.firstName + " for " + price);
+        } else {
+            throw new Exception("you can't afford it");
+        }
+    }
 }

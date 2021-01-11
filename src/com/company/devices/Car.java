@@ -1,6 +1,9 @@
 package com.company.devices;
 
-public class Car extends Device {
+import com.company.Human;
+import com.company.Saleable;
+
+public class Car extends Device implements Saleable {
 
     final public int horsepower;
     final public float engineCapacity;
@@ -15,12 +18,29 @@ public class Car extends Device {
     }
 
     public String toString() {
-        return producer + " " + model + " " + horsepower + "HP " + engineCapacity + "l " + yearOfProduction+ " year-of-production.";
+        return producer + " " + model + " " + horsepower + "HP " + engineCapacity + "l " + yearOfProduction + " year-of-production";
     }
 
     @Override
     void turnOn() {
-
+        System.out.println("Car on!");
     }
 
+
+    @Override
+    public void sell(Human seller, Human buyer, Double price) throws Exception {
+        if (buyer.getCash() < price) {
+            throw new Exception("sorry, you have not enough money");
+        }
+        if (seller.getCar() != this) {
+            throw new Exception("Man you don't have a car");
+        }
+        seller.setCash(  seller.getCash() + price);
+        buyer.setCash( buyer.getCash() - price);
+        buyer.setCar(this);
+        seller.setCar(null);
+        System.out.println(buyer.firstName + " bought " + this.toString() + " from " + seller.firstName + " for " + price);
+    }
 }
+
+

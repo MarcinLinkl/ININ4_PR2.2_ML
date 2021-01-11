@@ -6,13 +6,24 @@ import com.company.devices.Phone;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Human {
-    String firstName;
-    String lastName;
-    Animal pet;
-    Phone phone;
+public class Human extends Animal {
+    public String firstName;
+    public String lastName;
+    public Animal pet;
+    public Phone phone;
     private Car car;
     private Double salary;
+    private Double cash;
+
+
+    public Double getCash() {
+        return cash;
+    }
+
+    public void setCash(Double cash) {
+        this.cash = cash;
+    }
+
 
     @Override
     public String toString() {
@@ -34,9 +45,12 @@ public class Human {
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 
 
-    public Human(String firstName, String lastName) {
+    public Human(String firstName, String lastName, Double cash) {
+        super("homo sapiens");
         this.firstName = firstName;
         this.lastName = lastName;
+        this.cash = cash;
+        this.weight = 70.0;
     }
 
     public Double getSalary() {
@@ -66,25 +80,22 @@ public class Human {
         }
 
     }
-
+    public void setCar(Car car) {
+        this.car = car;
+    }
     public Car getCar() {
         return car;
     }
 
-    public void setCar(Car car) {
-        if (this.salary >car.value) {
+    public void butNewCar(Car car) {
+        if (this.salary >= car.value) {
             System.out.println("Congrats, you bought the car.");
             this.car = car;
-        }
-        else if (this.salary >=car.value/12) {
+        } else if (this.salary >= car.value /12.0) {
             System.out.println("Smile buddy, you bought it on credit.");
             this.car = car;
-        }
-        else {
+        } else {
             System.out.println("Sorry buddy, lets better find a new job! :(");
         }
-
-
-}
-
+    }
 }
