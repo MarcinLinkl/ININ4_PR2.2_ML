@@ -1,12 +1,15 @@
-package com.company;
+package com.company.creatures;
+
+import com.company.Saleable;
 
 import java.io.File;
 
-public class Animal implements Saleable {
+public abstract class Animal implements Saleable, Feedable, Edible {
 
     public static final Double DEFAULT_DOG_WEIGHT = 20.0;
     public static final Double DEFAULT_MOUSE_WEIGHT = 4.220;
     public static final Double DEFAULT_LION_WEIGHT = 43.0;
+    public static final Double DEFAULT_PIG_WEIGHT = 143.0;
     public final String species;
     protected Double weight;
     public String name;
@@ -37,22 +40,13 @@ public class Animal implements Saleable {
                 this.weight = DEFAULT_LION_WEIGHT;
             } else if (species == "mouse") {
                 this.weight = DEFAULT_MOUSE_WEIGHT;
+            } else if (species == "pig") {
+                this.weight = DEFAULT_PIG_WEIGHT;
             }
             System.out.println("Hey that's your " + this.species + " " + this.name + ". Hello!");
         }
     }
 
-
-    void feed() {
-        if (weight > 0) {
-            weight++;
-            System.out.println("Thx!");
-            System.out.println("That was nice my weigh is: " + this.weight);
-        } else {
-            System.out.println("Damn! I am dead.");
-
-        }
-    }
 
     void takeForAWalk() {
         if (weight <= 0) {

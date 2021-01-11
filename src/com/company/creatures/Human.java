@@ -1,5 +1,6 @@
-package com.company;
+package com.company.creatures;
 
+import com.company.creatures.Animal;
 import com.company.devices.Car;
 import com.company.devices.Phone;
 
@@ -10,6 +11,7 @@ public class Human extends Animal {
     public String firstName;
     public String lastName;
     public Animal pet;
+    public Animal farmAnimal;
     public Phone phone;
     private Car car;
     private Double salary;
@@ -99,5 +101,23 @@ public class Human extends Animal {
         } else {
             System.out.println("Sorry buddy, lets better find a new job! :(");
         }
+    }
+
+
+    @Override
+    public void feed() {
+        System.out.println(firstName + " weight is "+ weight);
+        weight++;
+    }
+
+    @Override
+    public void feed(Double foodWeight) {
+        weight+=foodWeight;
+        System.out.println(firstName + " weight is "+ weight);
+    }
+
+    @Override
+    public void beEaten() throws Exception {
+        throw new Exception("You cant eat yourself, that is sick!!!");
     }
 }
