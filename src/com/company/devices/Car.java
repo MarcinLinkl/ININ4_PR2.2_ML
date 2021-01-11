@@ -35,8 +35,8 @@ public class Car extends Device implements Saleable {
         if (seller.getCar() != this) {
             throw new Exception("Man you don't have a car");
         }
-        seller.setCash(  seller.getCash() + price);
-        buyer.setCash( buyer.getCash() - price);
+        seller.setCash(seller.getCash() + price);
+        buyer.setCash(buyer.getCash() - price);
         buyer.setCar(this);
         seller.setCar(null);
         System.out.println(buyer.firstName + " bought " + this.toString() + " from " + seller.firstName + " for " + price);

@@ -29,16 +29,18 @@ public class Animal implements Saleable {
 
     public Animal(String species) {
         this.species = species;
-        if (species == "homo sapiens"){}else {
-        if (species == "dog") {
-            this.weight = DEFAULT_DOG_WEIGHT;
-        } else if (species == "lion") {
-            this.weight = DEFAULT_LION_WEIGHT;
-        } else if (species == "mouse") {
-            this.weight = DEFAULT_MOUSE_WEIGHT;
+        if (species == "homo sapiens") {
+        } else {
+            if (species == "dog") {
+                this.weight = DEFAULT_DOG_WEIGHT;
+            } else if (species == "lion") {
+                this.weight = DEFAULT_LION_WEIGHT;
+            } else if (species == "mouse") {
+                this.weight = DEFAULT_MOUSE_WEIGHT;
+            }
+            System.out.println("Hey that's your " + this.species + " " + this.name + ". Hello!");
         }
-        System.out.println("Hey that's your " + this.species + " " + this.name + ". Hello!");
-    }}
+    }
 
 
     void feed() {
@@ -74,7 +76,7 @@ public class Animal implements Saleable {
             System.out.println("Oh no! Dont fuck with me! You don't have pet! >:{ ");
         } else if (buyer.getCash() >= price) {
             seller.setCash(seller.getCash() + price);
-            buyer.setCash( buyer.getCash() - price);
+            buyer.setCash(buyer.getCash() - price);
             buyer.pet = this;
             seller.pet = null;
 

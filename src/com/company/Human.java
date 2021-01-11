@@ -80,18 +80,20 @@ public class Human extends Animal {
         }
 
     }
+
     public void setCar(Car car) {
         this.car = car;
     }
+
     public Car getCar() {
         return car;
     }
 
-    public void butNewCar(Car car) {
+    public void buyNewCar(Car car) {
         if (this.salary >= car.value) {
             System.out.println("Congrats, you bought the car.");
             this.car = car;
-        } else if (this.salary >= car.value /12.0) {
+        } else if (this.salary >= car.value / 12.0) {
             System.out.println("Smile buddy, you bought it on credit.");
             this.car = car;
         } else {

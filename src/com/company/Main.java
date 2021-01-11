@@ -12,19 +12,12 @@ public class Main {
 
         me.setSalary(20000.0);
 
-        me.butNewCar(peugot206);
+        me.buyNewCar(peugot206);
         System.out.println("My car for now: " + me.getCar());
 
-        Human you = new Human("Andrzej","Andrzejewski", 2300.0);
+        Human you = new Human("Andrzej", "Andrzejewski", 2300.0);
         you.setSalary(400.0);
-        peugot206.sell(me,you,2200.0);
-
-
-
-
-
-
-
+        peugot206.sell(me, you, 2200.0);
 
 
     }
