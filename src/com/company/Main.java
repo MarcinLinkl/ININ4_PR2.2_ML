@@ -6,6 +6,7 @@ import com.company.creatures.FarmAnimal;
 import com.company.creatures.Human;
 import com.company.creatures.Pet;
 import com.company.devices.Car;
+import com.company.devices.Phone;
 
 public class Main {
 
@@ -21,21 +22,24 @@ public class Main {
 //        you.setSalary(400.0);
 
 
-        me.pet = new Pet("dog");
-        me.pet.name= "Klemens";
-        me.feed(0.1);
-        me.pet.feed();
-        //me.pet.beEaten();
-        System.out.println(me.pet);
+//        me.pet = new Pet("dog");
+//        me.pet.name= "Klemens";
+//        me.feed(0.1);
+//        me.pet.feed();
+//        //me.pet.beEaten();
+//        System.out.println(me.pet);
+//
+//
+//
+//        me.farmAnimal = new FarmAnimal("pig");
+//        me.farmAnimal.name="Stefan";
+//        me.farmAnimal.feed(2.3);
+//        System.out.println(me.farmAnimal);
+//        me.farmAnimal.beEaten();
 
-
-
-        me.farmAnimal = new FarmAnimal("pig");
-        me.farmAnimal.name="Stefan";
-        me.farmAnimal.feed(2.3);
-        System.out.println(me.farmAnimal);
-        me.farmAnimal.beEaten();
-
+        me.phone = new Phone("Xiaomi","note 10", 2020);
+        String[] apps = {"Csgo","Ap1","Ap2"};
+        me.phone.installAnnApp(apps);
 
     }
 }
