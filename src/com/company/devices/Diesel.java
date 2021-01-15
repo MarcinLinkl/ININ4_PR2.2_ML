@@ -1,15 +1,17 @@
 package com.company.devices;
 
-public class Electric extends Car{
+public class Diesel extends Car{
+    final public float engineCapacity;
 
-
-    public Electric(String model, String producer, int yearOfProduction, Double value, int horsepower) {
+    public Diesel(String model, String producer, int yearOfProduction, Double value, int horsepower, float engineCapacity) {
         super(model, producer, yearOfProduction, value, horsepower);
+        this.engineCapacity = engineCapacity;
     }
+
 
     @Override
     public void refuel() {
-        System.out.println("Car is fully charged!");
+        System.out.println("Now oil full!");
     }
 
     @Override
@@ -19,12 +21,13 @@ public class Electric extends Car{
 
     @Override
     public String toString() {
-        return "\nElectric{" +
+        return "\nDiesel{" +
                 "horsepower=" + horsepower +
                 ", model='" + model + '\'' +
                 ", producer='" + producer + '\'' +
                 ", yearOfProduction=" + yearOfProduction +
                 ", value=" + value +
+                ", engineCapacity=" + engineCapacity +
                 '}';
     }
 }

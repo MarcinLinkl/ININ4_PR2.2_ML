@@ -12,9 +12,10 @@ public class Phone extends Device {
     private static final String DEFAULT_APP_SERVER = "application.store.com";
     private static final int DEFAULT_APP_NUMBER = 80;
 
-    public Phone(String model, String producer, int yearOfProduction) {
-        super(model, producer, yearOfProduction);
+    public Phone(String model, String producer, int yearOfProduction, Double value) {
+        super(model, producer, yearOfProduction, value);
     }
+
 
     @Override
     void turnOn() {
@@ -65,5 +66,10 @@ public class Phone extends Device {
         System.out.println("Instalowanie z urla");
         System.out.println("poprawnie zainstalowano " + url.getFile() + " z serwera " + url.getHost());
 
+    }
+
+    @Override
+    public int compareTo(Device o) {
+        return 0;
     }
 }

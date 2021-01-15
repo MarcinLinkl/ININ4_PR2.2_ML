@@ -1,11 +1,14 @@
 package com.company.creatures;
 
-import com.company.creatures.Animal;
 import com.company.devices.Car;
 import com.company.devices.Phone;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+
+
+import static java.util.Objects.nonNull;
 
 public class Human extends Animal {
     public String firstName;
@@ -13,10 +16,8 @@ public class Human extends Animal {
     public Animal pet;
     public Animal farmAnimal;
     public Phone phone;
-    private Car car;
-    private Double salary;
     private Double cash;
-
+    public Car[] garage;
 
     public Double getCash() {
         return cash;
@@ -26,98 +27,106 @@ public class Human extends Animal {
         this.cash = cash;
     }
 
-
-    @Override
-    public String toString() {
-        return "Human {" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", pet=" + pet +
-                ", phone=" + phone +
-                ", car=" + car +
-                ", salary=" + salary +
-                ", lastSalary=" + lastSalary +
-                ", lastCheckSalary=" + lastCheckSalary +
-
-                '}';
-    }
-
-    Double lastSalary;
-    LocalDateTime lastCheckSalary;
-    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-
-
     public Human(String firstName, String lastName, Double cash) {
         super("homo sapiens");
         this.firstName = firstName;
         this.lastName = lastName;
         this.cash = cash;
         this.weight = 70.0;
+        this.garage = new Car[3];
     }
 
-    public Double getSalary() {
-        System.out.println("\u001B[34m");
-        if (lastCheckSalary == null) {
-            System.out.println("Last salary check was never done");
-        } else {
-            System.out.println("Last check of salary was at : " + dtf.format(lastCheckSalary) + " And the salary value was: " + lastSalary + " PLN");
+    public Human(String firstName, String lastName, Double cash, int garageSize) {
+        super("homo sapiens");
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.cash = cash;
+        this.weight = 70.0;
+        this.garage = new Car[garageSize];
+    }
+
+    public void setCar(Car car, int place) {
+        this.garage[(place - 1)] = car;
+    }
+
+
+    public Car getCar(int number) {
+        return this.garage[number];
+    }
+
+    public float allCarsPrice() {
+        float sum = 0f;
+        for (Car car : garage) {
+            if (car != null) {
+                sum += car.getValue();
+            }
         }
-        lastCheckSalary = LocalDateTime.now();
-        lastSalary = salary;
-        System.out.print("Now your salary is " + salary + " PLN");
-        System.out.println("\u001B[0m");
-        return salary;
+        return sum;
     }
 
-    public void setSalary(Double salary) {
-        if (salary < 0) {
-            System.out.println("\u001B[31m" + "Hey, please don't do it! - You can't give him negative value" + "\u001B[0m");
-        } else {
-            this.salary = salary;
-            System.out.println("\u001B[31m" + "Nice, You were a good worker!And for now your salary jumped up to: " + salary + " PLN");
-            System.out.println("Information about new salary has been just sent to accounting system.");
-            System.out.println("Now, please pick up new annex o the contract from Ms.Hania at the HR department. It's important. ");
-            System.out.println("Now, don't even think of about hiding your income. ZUS and US have already full knowledge about it :) " + "\u001B[0m");
+    public void removing(Car newCar) {
+        for (int i = 0; i < this.garage.length; i++) {
+            if (this.garage[i] == newCar) {
+                this.garage[i] = null;
+            }
+        }
+    }
+
+    public int freePlaceinGarage()   {
+        int x=0;
+        for (int i = 1; i <= this.garage.length; i++) {
+            if (this.getCar((i-1)) == null) {
+                x=i;
+                break;
+            }
 
         }
-
+        return x;
     }
 
-    public void setCar(Car car) {
-        this.car = car;
-    }
 
-    public Car getCar() {
-        return car;
-    }
+    public boolean isSpace() {
+        for (Car car : garage) {
+            if (car == null) {
+                return true;
+            }
 
-    public void buyNewCar(Car car) {
-        if (this.salary >= car.value) {
-            System.out.println("Congrats, you bought the car.");
-            this.car = car;
-        } else if (this.salary >= car.value / 12.0) {
-            System.out.println("Smile buddy, you bought it on credit.");
-            this.car = car;
-        } else {
-            System.out.println("Sorry buddy, lets better find a new job! :(");
         }
+        return false;
+    }
+
+
+    public boolean hasCar(Car thatCar) {
+        for (Car car : garage) {
+            if (car == thatCar) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void showMyCars()
+    {
+        for (int i = 0; i < this.garage.length; i++) {
+            if (nonNull(this.getCar(i)))
+                System.out.println(this.firstName +" " + (i + 1) + " place car: " + this.getCar(i).producer + " " + this.getCar(i).model + " from " + this.getCar(i).yearOfProduction);
+        }
+
     }
 
 
     @Override
+    public void beEaten()  {
+
+    }
+
+    @Override
     public void feed() {
-        System.out.println(firstName + " weight is "+ weight);
-        weight++;
+
     }
 
     @Override
     public void feed(Double foodWeight) {
-        weight+=foodWeight;
-        System.out.println(firstName + " weight is "+ weight);
-    }
 
-    @Override
-    public void beEaten() throws Exception {
-        throw new Exception("You cant eat yourself, that is sick!!!");
     }
 }

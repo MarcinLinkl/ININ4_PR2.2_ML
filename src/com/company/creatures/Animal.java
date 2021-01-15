@@ -1,6 +1,9 @@
 package com.company.creatures;
 
 import com.company.Saleable;
+import com.company.devices.Diesel;
+import com.company.devices.Electric;
+import com.company.devices.LPG;
 
 import java.io.File;
 
@@ -79,4 +82,5 @@ public abstract class Animal implements Saleable, Feedable, Edible {
             throw new Exception("you can't afford it");
         }
     }
+
 }
