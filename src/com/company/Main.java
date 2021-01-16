@@ -12,6 +12,7 @@ public class Main {
 
         Human me = new Human("Marcin", "Li", 600.0);
         Human Jacob = new Human("Jakub", "Kowal", 1200.0, 4);
+        Human Leszek = new Human("Leszek","Leszkowski",200000d,12);
         LPG Peugot206 = new LPG("206", "Peugot", 2002, 2000.0, 60, 1.1f);
         Diesel SkodaFabia = new Diesel("Fabia", "Skoda", 2007, 17000.0, 105, 1.6f);
         Electric TeslaS = new Electric("S", "Tesla", 2020, 350000.0, 306);
@@ -26,14 +27,23 @@ public class Main {
         Arrays.sort(me.garage);
         me.showMyCars();
 
-        Jacob.setCar(TeslaS,1);
-        Jacob.showMyCars();
 
-        Peugot206.sell(me, Jacob, 200.0);
-        SkodaFabia.sell(me,Jacob,23d);
+
+        SkodaFabia.sell(me,Jacob,230d);
+        SkodaFabia.sell(Jacob,Leszek,20.0);
 
         me.showMyCars();
         Jacob.showMyCars();
+        Leszek.showMyCars();
+
+
+       SkodaFabia.wasHeTheOwner(Leszek);
+       SkodaFabia.wasHeTheOwner(me);
+
+       SkodaFabia.didHeSell(me,Leszek);
+       SkodaFabia.didHeSell(me,Jacob);
+
+       SkodaFabia.howManyTransaction();
 
 
 
