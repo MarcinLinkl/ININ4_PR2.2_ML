@@ -3,7 +3,7 @@ package com.company.devices;
 import com.company.creatures.Human;
 import com.company.Saleable;
 
-public abstract class Device implements Saleable,Comparable<Device> {
+public abstract class Device implements Saleable, Comparable<Device> {
     final public String model;
     final public String producer;
     final public int yearOfProduction;
@@ -22,6 +22,7 @@ public abstract class Device implements Saleable,Comparable<Device> {
     public void sell(Human seller, Human buyer, Double price) throws Exception {
 
     }
+
     public Double getValue() {
         return this.value;
     }

@@ -48,43 +48,40 @@ public abstract class Car extends Device {
         System.out.println(buyer.firstName + " had " + buyer.getCash() + " before the transaction");
         seller.setCash(seller.getCash() + price);
         buyer.setCash(buyer.getCash() - price);
-        buyer.setCar(this, buyer.freePlaceinGarage());
+        buyer.setCar(this, buyer.freePlaceInGarage());
         seller.removing(this);
         this.listOfOwners.add(new OwnersOfCar(buyer, seller, price));
         System.out.println(buyer.firstName + " bought " + this.toString() + " from " + seller.firstName + " for " + price);
         System.out.println(seller.firstName + " have " + seller.getCash() + " after the transaction");
         System.out.println(buyer.firstName + " have " + buyer.getCash() + " after the transaction\n");
     }
-    public void wasHeTheOwner (Human he) {
+
+    public void wasHeTheOwner(Human he) {
         for (OwnersOfCar OwnersOfCar : listOfOwners) {
             if (OwnersOfCar.newOwner == he) {
                 System.out.println("Yes - Actually, he is now the owner this car");
-            }
-            else if (OwnersOfCar.lastOwner == he) {
+            } else if (OwnersOfCar.lastOwner == he) {
                 System.out.println("Yes - he was the owner of this car in the past");
-                }
-            else {
+            } else {
                 System.out.println("Nope, he wasn't ( owner of this car)");
             }
             return;
-            }
         }
+    }
 
-    public void didHeSell(Human aSeller, Human bBuyer ){
+    public void didHeSell(Human aSeller, Human bBuyer) {
         for (OwnersOfCar OwnersOfCar : listOfOwners) {
-            if (OwnersOfCar.lastOwner == aSeller && OwnersOfCar.newOwner==bBuyer){
-                System.out.println("Yes - "+ aSeller.firstName + " "+aSeller.lastName +" have sold this car " +bBuyer.firstName+" "+bBuyer.lastName );
-            }
-            else {
+            if (OwnersOfCar.lastOwner == aSeller && OwnersOfCar.newOwner == bBuyer) {
+                System.out.println("Yes - " + aSeller.firstName + " " + aSeller.lastName + " have sold this car " + bBuyer.firstName + " " + bBuyer.lastName);
+            } else {
                 System.out.println("No, he never done it!!!~1 ( sold him this car )");
             }
             return;
         }
     }
 
-    public void  howManyTransaction()
-    {
-        System.out.println("This has been "+ this.listOfOwners.size() + " times sold");
+    public void howManyTransaction() {
+        System.out.println("This has been " + this.listOfOwners.size() + " times sold");
     }
 
     public abstract void refuel();

@@ -1,6 +1,6 @@
 package com.company.devices;
 
-public class Electric extends Car{
+public class Electric extends Car {
 
 
     public Electric(String model, String producer, int yearOfProduction, Double value, int horsepower) {

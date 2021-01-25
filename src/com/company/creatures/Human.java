@@ -1,5 +1,6 @@
 package com.company.creatures;
 
+import com.company.devices.Application;
 import com.company.devices.Car;
 import com.company.devices.Phone;
 
@@ -15,6 +16,7 @@ public class Human extends Animal {
     public String lastName;
     public Animal pet;
     public Animal farmAnimal;
+
     public Phone phone;
     private Double cash;
     public Car[] garage;
@@ -45,6 +47,11 @@ public class Human extends Animal {
         this.garage = new Car[garageSize];
     }
 
+    public void setPhone(Phone phone) {
+        this.phone = phone;
+
+    }
+
     public void setCar(Car car, int place) {
         this.garage[(place - 1)] = car;
     }
@@ -53,6 +60,7 @@ public class Human extends Animal {
     public Car getCar(int number) {
         return this.garage[number];
     }
+
 
     public float allCarsPrice() {
         float sum = 0f;
@@ -72,18 +80,17 @@ public class Human extends Animal {
         }
     }
 
-    public int freePlaceinGarage()   {
-        int x=0;
+    public int freePlaceInGarage() {
+        int x = 0;
         for (int i = 1; i <= this.garage.length; i++) {
-            if (this.getCar((i-1)) == null) {
-                x=i;
+            if (this.getCar((i - 1)) == null) {
+                x = i;
                 break;
             }
 
         }
         return x;
     }
-
 
     public boolean isSpace() {
         for (Car car : garage) {
@@ -105,18 +112,18 @@ public class Human extends Animal {
         return false;
     }
 
-    public void showMyCars()
-    {
+    public void showMyCars() {
         for (int i = 0; i < this.garage.length; i++) {
             if (nonNull(this.getCar(i)))
-                System.out.println(this.firstName +" " + (i + 1) + " place car: " + this.getCar(i).producer + " " + this.getCar(i).model + " from " + this.getCar(i).yearOfProduction);
+                System.out.println(this.firstName + " " + (i + 1) + " place car: " + this.getCar(i).producer + " " + this.getCar(i).model + " from " + this.getCar(i).yearOfProduction);
         }
 
     }
 
 
+
     @Override
-    public void beEaten()  {
+    public void beEaten() {
 
     }
 

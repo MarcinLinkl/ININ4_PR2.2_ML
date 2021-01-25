@@ -1,6 +1,6 @@
 package com.company.devices;
 
-public class Diesel extends Car{
+public class Diesel extends Car {
     final public float engineCapacity;
 
     public Diesel(String model, String producer, int yearOfProduction, Double value, int horsepower, float engineCapacity) {

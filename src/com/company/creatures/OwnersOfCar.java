@@ -13,8 +13,8 @@ public class OwnersOfCar {
     @Override
     public String toString() {
         return "\nList of Owners \n" +
-                "newOwner = " + newOwner.firstName + " "+ newOwner.lastName+
-                ", lastOwner = " + lastOwner.firstName+ " "+ lastOwner.lastName+
+                "newOwner = " + newOwner.firstName + " " + newOwner.lastName +
+                ", lastOwner = " + lastOwner.firstName + " " + lastOwner.lastName +
                 ", price = " + price +
                 ", timeOfTransaction = " + timeOfTransaction +
                 '}';
